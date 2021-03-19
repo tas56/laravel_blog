@@ -17,10 +17,10 @@ class Page extends Model
     {
         parent::boot();
         static::creating(function ($model) {
-            $model->user_id = Auth::id();
+            $model->id = Auth::id();
         });
         static::updating(function ($model) {
-            $model->user_id = Auth::id();
+            $model->id = Auth::id();
         });
     }
 }
