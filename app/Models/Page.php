@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class Page extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title', 'body'
+    ];
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -17,10 +20,12 @@ class Page extends Model
     {
         parent::boot();
         static::creating(function ($model) {
-            $model->id = Auth::id();
+            if(Auth::id() != null) {
+                $model->user_id = Auth::id();
+            }
         });
         static::updating(function ($model) {
-            $model->id = Auth::id();
+            $model->user_id = Auth::id();
         });
     }
 }
