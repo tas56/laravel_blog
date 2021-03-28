@@ -23,10 +23,9 @@ class PageFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->word,
+            'title' => $this->faker->sentence,
             'body' => $this->faker->sentence,
-            'published' => $this->faker->boolean,
-            'id' => User::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }
