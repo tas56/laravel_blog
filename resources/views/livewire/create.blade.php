@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="fixed z-10 inset-0 overflow-y-auto ease-out duration-400">
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
@@ -43,3 +44,18 @@
     </div>
 </div>
 </div>
+=======
+<form>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Name</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name" wire:model="name">
+        @error('name') <span class="text-danger">{{ $message }}</span>@enderror
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput2">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput2" wire:model="email" placeholder="Enter Email">
+        @error('email') <span class="text-danger">{{ $message }}</span>@enderror
+    </div>
+    <button wire:click.prevent="store()" class="btn btn-success">Save</button>
+</form>
+>>>>>>> afd3b312e4c46b560eb359ed0b87852b042365d7

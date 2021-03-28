@@ -15,6 +15,7 @@ use App\Http\Livewire\Contacts;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::view('users','livewire.home');
 
 Route::get('/', function () {
     return view('welcome');
