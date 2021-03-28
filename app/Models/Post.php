@@ -5,24 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
-
 class Post extends Model
 {
     use HasFactory;
-
-    public function page(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    protected $fillable = [
+        'title', 'body'
+    ];
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(Page::class);
+        return $this->belongsTo(User::class);
     }
-
     protected static function boot()
     {
         parent::boot();
         static::creating(function ($model) {
-            $model->id = Auth::id();
+            if(Auth::id() != null) {
+                $model->user_id = Auth::id();
+            }
         });
         static::updating(function ($model) {
-            $model->id = Auth::id();
+            $model->user_id = Auth::id();
         });
     }
+
 }
