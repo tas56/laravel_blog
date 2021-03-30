@@ -80,7 +80,7 @@ class Pages extends Component
             'body' => 'required',
         ]);
 
-        Post::updateOrCreate(['id' => $this->page_id], [
+        Page::updateOrCreate(['id' => $this->page_id], [
             'title' => $this->title,
             'body' => $this->body,
         ]);

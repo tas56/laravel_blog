@@ -14,9 +14,10 @@ class CreatePagesTable extends Migration
     public function up()
     {
         Schema::create('pages', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('title');
             $table->string('body');
+            //create the relationship between a task and the user that created it
             $table->integer('user_id')->unsigned()->index();
             $table->timestamps();
         });
