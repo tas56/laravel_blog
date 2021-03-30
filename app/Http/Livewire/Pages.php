@@ -65,7 +65,7 @@ class Pages extends Component
     private function resetInputFields(){
         $this->title = '';
         $this->body = '';
-        $this->post_id = '';
+        $this->page_id = '';
     }
 
     /**
@@ -80,7 +80,7 @@ class Pages extends Component
             'body' => 'required',
         ]);
 
-        Post::updateOrCreate(['id' => $this->post_id], [
+        Post::updateOrCreate(['id' => $this->page_id], [
             'title' => $this->title,
             'body' => $this->body,
         ]);

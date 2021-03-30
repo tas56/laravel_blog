@@ -24,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->share('public_pages', Page::all());
+
     }
 }
