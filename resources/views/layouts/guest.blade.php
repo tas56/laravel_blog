@@ -33,9 +33,6 @@
                 <a href="{{ route('public_pages_index') }}" class="text-sm text-gray-700 underline">Pages</a>
                 <a href="{{ route('public_posts_index') }}" class="text-sm text-gray-700 underline">Posts</a>
                 <a href="{{ route('home') }}" class="text-sm text-gray-700 underline">Home</a>
-{{--                @foreach ($public_pages as $page)--}}
-{{--                    <a class="hover:underline" href="{{route('public_pages_show', $page->id)}}">{{$page->title}}</a>--}}
-{{--                @endforeach--}}
             </div>
         @endif        <!-- Page Heading -->
         @if (isset($header))

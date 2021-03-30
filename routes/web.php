@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Posts as LiveWirePosts;
 use App\Http\Livewire\Contacts;
+use App\Http\Livewire\Pages as LiveWirePages;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('posts_admin', LiveWirePosts::class)->name('posts');
+Route::middleware(['auth:sanctum', 'verified'])->get('pages_admin', LiveWirePages::class)->name('pages');
