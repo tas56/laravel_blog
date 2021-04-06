@@ -20,7 +20,7 @@ class Pages extends Component
     {
         $user = auth()->user();
         $this->pages = $user->pages;
-        return view('livewire.posts');
+        return view('livewire.pages');
     }
     public function index() {
 
