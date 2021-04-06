@@ -9,9 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class Page extends Model
 {
     use HasFactory;
-    public $timestamps = false;
     protected $fillable = [
-        'pageID', 'title', 'body', 'published'
+        'page_id', 'title', 'body', 'published'
     ];
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
