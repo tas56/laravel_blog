@@ -1,3 +1,1 @@
-## IS373 Midterm
-
-_Group Members: Thomas Semiz, Connor Letko_
+## IS373 Final Blog
