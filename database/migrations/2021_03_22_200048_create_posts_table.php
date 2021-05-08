@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('body');
+            $table->boolean('published');
             //create the relationship between a task and the user that created it
             $table->integer('user_id')->unsigned()->index();
             $table->timestamps();

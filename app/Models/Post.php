@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Comment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -26,6 +27,10 @@ class Post extends Model
         static::updating(function ($model) {
             $model->user_id = Auth::id();
         });
+    }
+    public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Comment::class)->whereNull('parent_id');
     }
 
 }

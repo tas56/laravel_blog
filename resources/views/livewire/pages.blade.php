@@ -15,7 +15,7 @@
                     </div>
                 </div>
             @endif
-            <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Create New Page</button>
+            <button wire:click="create()" class="bg-gray-500 hover:bg-black text-white font-bold py-2 px-4 rounded my-3">Create New Page</button>
             @if($isOpen)
                 @include('livewire.create')
             @endif
@@ -24,7 +24,6 @@
                 <tr class="bg-gray-100">
                     <th class="px-4 py-2 w-20">No.</th>
                     <th class="px-4 py-2">Title</th>
-                    <th class="px-4 py-2">Body</th>
                     <th class="px-4 py-2">Action</th>
                 </tr>
                 </thead>
@@ -33,9 +32,18 @@
                     <tr>
                         <td class="border px-4 py-2">{{ $page->id }}</td>
                         <td class="border px-4 py-2">{{ $page->title }}</td>
-                        <td class="border px-4 py-2">{{ $page->body }}</td>
-                        <td class="border px-4 py-2">
-                            <button wire:click="edit({{ $page->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
+                        <td class="border px-4 py-2 flex justify-around">
+
+                            <button wire:click="view({{ $page->id }})" class="bg-gray-500 hover:bg-black text-white font-bold py-2 px-4 rounded">View Page</button>
+                            @if($isOpenShow)
+                                @include('livewire.show')
+                            @endif
+                            <button wire:click="edit({{ $page->id }})" class="bg-gray-500 hover:bg-black text-white font-bold py-2 px-4 rounded">Edit</button>
+                            @if(!$published)
+                                <button wire:click="unpublish({{ $page->id }})" class="bg-yellow-300 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">unpublish</button>
+                            @else
+                                <button wire:click="publish({{ $page->id }})" class="bg-yellow-300 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Publish</button>
+                            @endif
                             <button wire:click="delete({{ $page->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                         </td>
                     </tr>

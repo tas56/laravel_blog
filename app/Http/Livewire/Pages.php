@@ -2,14 +2,17 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Post;
 use Livewire\Component;
 use App\Models\Page;
 use App\Models\User;
 
 class Pages extends Component
 {
-    public $pages, $title, $body, $page_id;
+    public $pages, $title, $body, $page_id, $published;
     public $isOpen = 0;
+    public $isOpenShow = 0;
+    public $isPublished = 0;
 
     /**
      * The attributes that are mass assignable.
@@ -46,6 +49,14 @@ class Pages extends Component
     {
         $this->isOpen = true;
     }
+    public function openShowModal()
+    {
+        $this->isOpenShow = true;
+    }
+    public function isPublished()
+    {
+        $this->isPublished = true;
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -55,6 +66,14 @@ class Pages extends Component
     public function closeModal()
     {
         $this->isOpen = false;
+    }
+    public function closeShowModal()
+    {
+        $this->isOpenShow = false;
+    }
+    public function isUnpublished()
+    {
+        $this->isPublished = false;
     }
 
     /**
@@ -83,12 +102,15 @@ class Pages extends Component
         Page::updateOrCreate(['id' => $this->page_id], [
             'title' => $this->title,
             'body' => $this->body,
+            'published' => true
+
         ]);
 
         session()->flash('message',
             $this->page_id ? 'Page Updated Successfully.' : 'Page Created Successfully.');
 
         $this->closeModal();
+        $this->closeShowModal();
         $this->resetInputFields();
     }
     /**
@@ -115,5 +137,36 @@ class Pages extends Component
     {
         Page::find($id)->delete();
         session()->flash('message', 'Page Deleted Successfully.');
+    }
+    public function publish($id)
+    {
+        $page = Page::findOrFail($id);
+        $this->page_id = $id;
+        $this->published = true;
+        $page->published = 0;
+        $this->isPublished();
+        session()->flash('message', 'Page Published Successfully.');
+    }
+
+
+    public function view($id)
+    {
+        $page = Page::findOrFail($id);
+        $this->page_id = $id;
+        $this->title = $page->title;
+        $this->body = $page->body;
+
+        $this->openShowModal();
+    }
+
+
+    public function unpublish($id)
+    {
+        $page = Page::findOrFail($id);
+        $this->page_id = $id;
+        $this->published = false;
+        $page->published = 0;
+        $this->isUnpublished();
+        session()->flash('message', 'Page Unpublished Successfully.');
     }
 }

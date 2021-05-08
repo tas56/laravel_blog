@@ -20,7 +20,22 @@ use App\Http\Livewire\Pages as LiveWirePages;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
-Route::get('/contacts', [Contacts::class, 'index']);
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/volunteer', function () {
+    return view('volunteer');
+})->name('volunteer');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::get('/donate', function () {
+    return view('donate');
+})->name('donate');
 
 Route::get('/posts/',[\App\Http\Controllers\PostsController::class, 'index'])->name('public_posts_index');
 Route::get('/posts/{id}',[\App\Http\Controllers\PostsController::class, 'show'])->name('public_posts_show');

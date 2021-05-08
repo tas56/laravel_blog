@@ -1,0 +1,394 @@
+@import '../../node_modules/tailwindcss/base.css';
+@import '../../node_modules/tailwindcss/components.css';
+@import '../../node_modules/tailwindcss/utilities.css';
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+.content {
+    width: 90%;
+    margin: 4em auto;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: justify;
+}
+
+#logo {
+    display: flex;
+    justify-content: center;
+}
+
+#logo img {
+    width: 250px;
+    height: 250px;
+}
+
+#shoutout {
+    height: 30px;
+    width: 100%;
+    background-color: #ffeda7;
+    position: absolute;
+    top: 0;
+}
+
+#shoutout p {
+    text-align: center;
+    width: 100%;
+    font-size: 15px;
+    letter-spacing: 4px;
+    position: relative;
+    top: -10px;
+}
+
+#shoutout a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+}
+
+#shoutout a:hover {
+    font-weight: bolder;
+    color: #fff;
+}
+
+/* NAVIGATION */
+
+
+/* LANDING */
+
+.parallax-landing {
+    background-image: url("../img/landing.JPEG");
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.landing {
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.landing p {
+    color: rgba(255, 255, 255, .7);
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.p1 {
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 6px;
+}
+
+.p2 {
+    letter-spacing: 2px;
+    font-size: 35px;
+}
+
+/* SECTION GENERAL */
+
+section h1 {
+    letter-spacing: 4px;
+}
+
+section {
+    line-height: 30px;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* DONATE */
+
+.parallax-donate {
+    background-image: url("../img/homeless.jpg");
+    height: 50vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.donate {
+    display: grid;
+    grid-template-columns: .5fr .5fr;
+    gap: 20px;
+}
+
+.donate-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.donate-header p{
+    color: rgba(255, 255, 255, .7);
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 6px;
+}
+
+#venmo {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#venmo h2 {
+    font-weight: bold;
+    letter-spacing: 2px;;
+    font-size: 20px;
+    text-align: center;
+}
+
+#venmo img {
+    width: 100px;
+    height: 100px;
+}
+
+/* VOLUNTEER */
+
+.parallax-volunteer {
+    background-image: url("../img/donate.jpg");
+    height: 50vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.volunteer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 3em;
+    color: rgba(0, 0, 0, .7);
+    font-size: 23px;
+}
+
+.volunteer h1 {
+    text-align: center;
+}
+
+/* CONTACT */
+
+#contact {
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0,.8);
+    margin: 0 auto;
+    color: rgba(255, 255, 255, .7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#social {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 400px;
+}
+
+#contact i {
+    color: rgba(255, 255, 255, .7);
+    display: block;
+    margin: 10px;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 700px;
+}
+
+#contact-form input, textarea {
+    padding: 10px;
+    margin: 10px;
+}
+
+#submit {
+    background-color: #ffeda7;
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
+}
+
+#submit:hover {
+    background-color:rgba(255, 255, 255, .7);
+}
+
+/* FOOTER */
+
+footer {
+    height: 70px;
+    background-color: rgba(0, 0, 0,.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p {
+    color: rgba(255, 255, 255, .7);
+    text-align: center;
+}
+
+.copyright {
+    font-size: 10px;
+}
+
+@media(max-width: 900px) {
+    .parallax-landing, .parallax-donate, .parallax-volunteer {
+        background-attachment: scroll;
+    }
+}
+
+@media(max-width: 786px) {
+
+    #shoutout p {
+        font-size: 9px;
+        top: 0;
+    }
+
+
+    .menu-icon {
+        display: flex;
+        justify-content: center;
+    }
+
+    .p1 {
+        font-size: 25px;
+    }
+
+    .p2 {
+        font-size: 22px;
+    }
+
+    .donate {
+        display: block;
+    }
+
+    .donate-header p {
+        font-size: 18px;
+    }
+
+    #venmo {
+        flex-direction: column;
+        margin: 20px auto;
+    }
+
+    #venmo h2 {
+        font-weight: bold;
+        letter-spacing: 2px;;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    #venmo img {
+        width: 300px;
+        height: 300px;
+    }
+
+}
+
+/* SOCIAL MEDIA SHARE BUTTONS */
+
+.share {
+    background-color: #f5f5f5;
+    color: #cccccc;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resp-sharing-button__link,
+.resp-sharing-button__icon {
+    display: inline-block
+}
+
+.resp-sharing-button__link {
+    text-decoration: none;
+    color: #fff;
+    margin: 0.5em
+}
+
+.resp-sharing-button {
+    border-radius: 5px;
+    transition: 25ms ease-out;
+    padding: 0.5em 0.75em;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif
+}
+
+.resp-sharing-button__icon svg {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.4em;
+    vertical-align: top
+}
+
+.resp-sharing-button--small svg {
+    margin: 0;
+    vertical-align: middle
+}
+
+/* Non solid icons get a stroke */
+.resp-sharing-button__icon {
+    stroke: #fff;
+    fill: none
+}
+
+/* Solid icons get a fill */
+.resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solidcircle {
+    fill: #fff;
+    stroke: none
+}
+
+.resp-sharing-button--twitter {
+    background-color: #55acee
+}
+
+.resp-sharing-button--twitter:hover {
+    background-color: #2795e9
+}
+
+.resp-sharing-button--facebook {
+    background-color: #3b5998
+}
+
+.resp-sharing-button--facebook:hover {
+    background-color: #2d4373
+}
+
+
+.resp-sharing-button--email {
+    background-color: #777
+}
+
+.resp-sharing-button--email:hover {
+    background-color: #5e5e5e
+}
+
+

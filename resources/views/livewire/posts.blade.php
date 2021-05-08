@@ -15,7 +15,7 @@
                     </div>
                 </div>
             @endif
-            <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Create New Post</button>
+            <button wire:click="create()" class="bg-gray-500 hover:bg-black text-white font-bold py-2 px-4 rounded my-3">Create New Post</button>
             @if($isOpen)
                 @include('livewire.create')
             @endif
@@ -24,19 +24,27 @@
                 <tr class="bg-gray-100">
                     <th class="px-4 py-2 w-20">No.</th>
                     <th class="px-4 py-2">Title</th>
-                    <th class="px-4 py-2">Body</th>
                     <th class="px-4 py-2">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($posts as $post)
-                    <tr>
+                    <tr style="max-height: 40px; overflow: scroll">
                         <td class="border px-4 py-2">{{ $post->id }}</td>
                         <td class="border px-4 py-2">{{ $post->title }}</td>
-                        <td class="border px-4 py-2">{{ $post->body }}</td>
-                        <td class="border px-4 py-2">
-                            <button wire:click="edit({{ $post->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
-                            <button wire:click="delete({{ $post->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                        <td class="border px-4 py-2 flex justify-around">
+                            <button wire:click="view({{ $post->id }})" class="bg-gray-500 hover:bg-black text-white font-bold py-2 px-4 rounded">View Post</button>
+                            @if($isOpenShow)
+                                @include('livewire.show')
+                            @endif
+                            <button wire:click="edit({{ $post->id }})" class="bg-gray-500 hover:bg-black text-white font-bold py-2 px-4 rounded">Edit</button>
+
+                            @if($published)
+                                <button wire:click="unpublish({{ $post->id }})" class="bg-yellow-300 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">unpublish</button>
+                            @else
+                                <button wire:click="publish({{ $post->id }})" class="bg-yellow-300 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Publish</button>
+                            @endif
+                                <button wire:click="delete({{ $post->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                         </td>
                     </tr>
                 @endforeach
